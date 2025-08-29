@@ -78,7 +78,7 @@ with col1:
         original_image = Image.open(uploaded_file).convert("RGB")
     else:
         # Provide a default image for immediate use
-        default_url = "https://images.unsplash.com/photo-1583337130417-334be7dee?auto=format&fit=crop&w=500"
+        default_url = "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=500"
         try:
             original_image = Image.open(requests.get(default_url, stream=True).raw).convert("RGB")
         except requests.exceptions.RequestException:
@@ -95,8 +95,8 @@ with col1:
 
     # Display the images
     img_col1, img_col2 = st.columns(2)
-    img_col1.image(original_image, caption="Original Image", use_container_width=True)
-    img_col2.image(corrupted_image, caption="Corrupted Image (Model Input)", use_container_width=True)
+    img_col1.image(original_image, caption="Original Image", use_column_width=True)
+    img_col2.image(corrupted_image, caption="Corrupted Image (Model Input)", use_column_width=True)
 
 with col2:
     st.header("2. Model Adaptation & Results")
